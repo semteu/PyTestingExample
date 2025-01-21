@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo Build started on `date`
+      - pip3 install -r requirements.txt
+      - echo Files before tests
+      - ls -R
+  test:
+    commands:
+      - pip3 install pytest
+      - pytest --junitxml=tests_results/results.xml
+      - echo Test results
+      - ls -R tests_results
+artifacts:
+  files:
+    - '**/tests_results/results.xml'
+
